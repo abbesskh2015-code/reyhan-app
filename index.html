@@ -12,7 +12,7 @@
 
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: Tahoma, Arial, sans-serif;
       background: linear-gradient(135deg, #ffe6f2, #e6f7ff);
       min-height: 100vh;
       display: flex;
@@ -25,10 +25,10 @@
       width: 95%;
       max-width: 430px;
       min-height: 90vh;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       border-radius: 28px;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-      padding: 20px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -41,29 +41,24 @@
     }
 
     .avatar {
-      width: 115px;
-      height: 115px;
+      width: 125px;
+      height: 125px;
       margin: 5px auto 10px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ffb6d9, #b6e5ff);
+      background: linear-gradient(135deg, #ffd1e6, #b6e5ff);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 54px;
+      font-size: 72px;
       animation: floatAvatar 2.5s ease-in-out infinite;
-      box-shadow: 0 8px 18px rgba(255, 120, 180, 0.3);
+      box-shadow: 0 8px 18px rgba(255, 120, 180, 0.35);
+      border: 5px solid #fff;
     }
 
     @keyframes floatAvatar {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
-      100% {
-        transform: translateY(0);
-      }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
     }
 
     h1 {
@@ -75,27 +70,30 @@
     .subtitle {
       margin: 0;
       color: #666;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .chat-box {
       flex: 1;
-      margin-top: 18px;
+      margin-top: 15px;
       padding: 12px;
       background: #fff9fc;
       border-radius: 20px;
       overflow-y: auto;
       border: 1px solid #ffe1ef;
+      min-height: 360px;
+      max-height: 470px;
     }
 
     .message {
-      max-width: 85%;
-      padding: 12px 14px;
-      margin: 10px 0;
+      max-width: 88%;
+      padding: 11px 13px;
+      margin: 9px 0;
       border-radius: 18px;
-      line-height: 1.7;
-      font-size: 15px;
+      line-height: 1.8;
+      font-size: 14px;
       animation: fadeIn 0.35s ease;
+      white-space: pre-line;
     }
 
     .bot {
@@ -124,25 +122,38 @@
     .buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 15px;
+      gap: 9px;
+      margin-top: 14px;
     }
 
     button {
       border: none;
       border-radius: 18px;
       padding: 13px 8px;
-      font-size: 15px;
+      font-size: 14px;
       cursor: pointer;
       background: linear-gradient(135deg, #ff8fc7, #7ed6ff);
       color: white;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
+      font-family: Tahoma, Arial, sans-serif;
     }
 
     button:active {
       transform: scale(0.96);
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .green {
+      background: linear-gradient(135deg, #8ee6a8, #63d8ff);
+    }
+
+    .purple {
+      background: linear-gradient(135deg, #c79bff, #ff8fc7);
+    }
+
+    .orange {
+      background: linear-gradient(135deg, #ffb36b, #ff8fc7);
     }
 
     .wide {
@@ -154,7 +165,7 @@
       text-align: center;
       font-size: 12px;
       color: #888;
-      margin-top: 10px;
+      margin-top: 9px;
     }
   </style>
 </head>
@@ -162,23 +173,26 @@
 <body>
   <div class="app">
     <div class="header">
-      <div class="avatar">🌸</div>
+      <div class="avatar">👧🏻</div>
       <h1>ریحان کوچولو</h1>
-      <p class="subtitle">دوست کوچولوی مهربون برای بازی و شادی</p>
+      <p class="subtitle">دوست کوچولوی مهربون برای پیشنهاد بازی و شادی</p>
     </div>
 
     <div id="chatBox" class="chat-box">
       <div class="message bot">
-        سلام ریحان جان! من اینجام تا با هم بازی کنیم. یکی از گزینه‌ها رو انتخاب کن.
+        سلام ریحان جان 👧🏻💕
+        من دوست کوچولوی تو هستم.
+        بگو امروز دوست داری چه بازی‌ای انجام بدیم؟
       </div>
     </div>
 
     <div class="buttons">
-      <button onclick="chooseGame('نقاشی')">🎨 نقاشی</button>
-      <button onclick="chooseGame('قصه')">📖 قصه</button>
-      <button onclick="chooseGame('آهنگ')">🎵 آهنگ</button>
-      <button onclick="chooseGame('بازی شادی')">🎈 بازی شادی</button>
-      <button class="wide" onclick="sayWelcome()">🌷 سلام دوباره</button>
+      <button onclick="suggestGame()">🎲 پیشنهاد بازی</button>
+      <button class="purple" onclick="suggestQuietGame()">🌙 بازی آرام</button>
+      <button class="orange" onclick="suggestHappyGame()">🎈 بازی شاد</button>
+      <button onclick="suggestCreativeGame()">🎨 بازی خلاقانه</button>
+      <button class="green" onclick="sayWelcome()">🌷 سلام ریحان</button>
+      <button class="purple" onclick="clearChat()">🧹 شروع دوباره</button>
     </div>
 
     <div class="footer">
@@ -193,6 +207,45 @@
     const chatBox = document.getElementById("chatBox");
     const welcomeAudio = document.getElementById("welcomeAudio");
     const choiceAudio = document.getElementById("choiceAudio");
+
+    const allGames = [
+      "بازی قایم‌باشک با عروسک‌ها 🧸",
+      "نقاشی کشیدن از یک خورشید خندان ☀️",
+      "ساختن برج با لیوان یا مکعب‌ها 🏰",
+      "پیدا کردن ۵ چیز صورتی در اتاق 🌸",
+      "بازی تقلید صدای حیوانات 🐱🐶",
+      "رقص کوچولوی شاد با آهنگ 🎵",
+      "ساختن خانه خیالی با بالش‌ها 🏠",
+      "قصه ساختن درباره یک پروانه مهربون 🦋",
+      "بازی فروشگاه کوچولو با اسباب‌بازی‌ها 🛒",
+      "بازی دکتر کوچولو برای عروسک‌ها 🩺",
+      "چیدن پازل یا جورچین 🧩",
+      "بازی حدس بزن چی توی دستمه 🤲"
+    ];
+
+    const quietGames = [
+      "بیا یک قصه آرام درباره ماه و ستاره‌ها بسازیم 🌙⭐",
+      "بیا عروسک‌ها را بخوابانیم و برایشان لالایی بخوانیم 🧸",
+      "بیا با مداد رنگی یک رنگین‌کمان آرام بکشیم 🌈",
+      "بیا ۵ نفس عمیق بکشیم و بعد یک قصه قشنگ بگیم 🌸",
+      "بیا کتاب قصه را باز کنیم و تصویرهایش را نگاه کنیم 📖"
+    ];
+
+    const happyGames = [
+      "بیا مثل پروانه دور اتاق بچرخیم 🦋",
+      "بیا با آهنگ شاد دست بزنیم و برقصیم 🎵",
+      "بیا مسابقه خنده بگذاریم؛ هرکی زودتر خندید برنده است 😄",
+      "بیا بادکنک خیالی را فوت کنیم و بفرستیم هوا 🎈",
+      "بیا مثل خرگوش کوچولو بپریم 🐰"
+    ];
+
+    const creativeGames = [
+      "بیا یک نقاشی از ریحان کوچولو و دوست خیالی‌اش بکشیم 🎨",
+      "بیا با کاغذ یک گل قشنگ درست کنیم 🌺",
+      "بیا با لگو یا وسایل خانه یک قلعه بسازیم 🏰",
+      "بیا یک قصه اختراع کنیم: ریحان و گربه جادویی 🐱✨",
+      "بیا با رنگ‌ها یک دنیای آبنباتی بسازیم 🍭"
+    ];
 
     function addMessage(text, type) {
       const msg = document.createElement("div");
@@ -209,26 +262,75 @@
       });
     }
 
+    function randomItem(list) {
+      return list[Math.floor(Math.random() * list.length)];
+    }
+
     function sayWelcome() {
-      addMessage("سلام ریحان کوچولو 🌸", "user");
+      addMessage("سلام دوست کوچولوی من 🌷", "user");
+
       setTimeout(function() {
-        addMessage("سلام عزیزم! خوش اومدی. بیا با هم بازی کنیم 💕", "bot");
+        addMessage("سلام ریحان جان! خیلی خوشحالم که اومدی. آماده‌ای یه بازی قشنگ انتخاب کنیم؟ 💕", "bot");
         playAudio(welcomeAudio);
       }, 500);
     }
 
-    function chooseGame(gameName) {
-      addMessage(gameName, "user");
+    function suggestGame() {
+      addMessage("یه بازی بهم پیشنهاد بده 🎲", "user");
+
+      const game = randomItem(allGames);
 
       setTimeout(function() {
-        addMessage("چه انتخاب خوبی! بریم سراغ " + gameName + " 😍", "bot");
+        addMessage("چه انتخاب خوبی! من این بازی رو پیشنهاد می‌کنم:\n\n" + game, "bot");
         playAudio(choiceAudio);
       }, 500);
     }
 
+    function suggestQuietGame() {
+      addMessage("یه بازی آرام می‌خوام 🌙", "user");
+
+      const game = randomItem(quietGames);
+
+      setTimeout(function() {
+        addMessage("چه انتخاب خوبی! برای آرامش، این بازی قشنگه:\n\n" + game, "bot");
+        playAudio(choiceAudio);
+      }, 500);
+    }
+
+    function suggestHappyGame() {
+      addMessage("یه بازی شاد می‌خوام 🎈", "user");
+
+      const game = randomItem(happyGames);
+
+      setTimeout(function() {
+        addMessage("چه انتخاب خوبی! بیا شادی کنیم:\n\n" + game, "bot");
+        playAudio(choiceAudio);
+      }, 500);
+    }
+
+    function suggestCreativeGame() {
+      addMessage("یه بازی خلاقانه می‌خوام 🎨", "user");
+
+      const game = randomItem(creativeGames);
+
+      setTimeout(function() {
+        addMessage("چه انتخاب خوبی! این بازی خلاقانه عالیه:\n\n" + game, "bot");
+        playAudio(choiceAudio);
+      }, 500);
+    }
+
+    function clearChat() {
+      chatBox.innerHTML = "";
+
+      addMessage(
+        "سلام ریحان جان 👧🏻💕\nمن دوباره آماده‌ام.\nبزن روی «پیشنهاد بازی» تا یه بازی قشنگ بهت بگم.",
+        "bot"
+      );
+    }
+
     window.addEventListener("load", function() {
       setTimeout(function() {
-        playAudio(welcomeAudio);
+        addMessage("اگر دوست داری، روی دکمه «پیشنهاد بازی» بزن تا یک بازی قشنگ بهت بگم 🎲", "bot");
       }, 800);
     });
   </script>
