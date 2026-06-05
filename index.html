@@ -3,696 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ریحان کوچولو | پیشنهاد بازی کودکانه</title>
+  <title>ریحان کوچولو</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap');
-
     * {
       box-sizing: border-box;
-      font-family: "Vazirmatn", sans-serif;
     }
 
     body {
       margin: 0;
+      font-family: sans-serif;
+      background: linear-gradient(135deg, #ffe6f2, #e6f7ff);
       min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, #ffe0f0, transparent 35%),
-        radial-gradient(circle at bottom right, #c9f4ff, transparent 35%),
-        linear-gradient(135deg, #fff4fa, #e9fbff);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 18px;
+      color: #333;
     }
 
     .app {
-      width: 100%;
-      max-width: 480px;
-      background: #ffffff;
-      border-radius: 34px;
-      box-shadow: 0 25px 60px rgba(236, 72, 153, 0.22);
+      width: 95%;
+      max-width: 430px;
+      min-height: 90vh;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 28px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      border: 5px solid rgba(255,255,255,0.9);
     }
 
     .header {
-      background: linear-gradient(135deg, #ff72b6, #ffacd8);
-      padding: 28px 20px 24px;
       text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .header::before,
-    .header::after {
-      content: "";
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.18);
-    }
-
-    .header::before {
-      top: -50px;
-      right: -50px;
-    }
-
-    .header::after {
-      bottom: -70px;
-      left: -40px;
+      padding-bottom: 10px;
+      border-bottom: 2px dashed #ffd1e6;
     }
 
     .avatar {
-      width: 145px;
-      height: 145px;
-      background: #ffe4f1;
+      width: 115px;
+      height: 115px;
+      margin: 5px auto 10px;
       border-radius: 50%;
-      margin: 0 auto 12px;
-      position: relative;
-      border: 7px solid white;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.13);
-      animation: floatAvatar 3s ease-in-out infinite;
-      z-index: 2;
+      background: linear-gradient(135deg, #ffb6d9, #b6e5ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 54px;
+      animation: floatAvatar 2.5s ease-in-out infinite;
+      box-shadow: 0 8px 18px rgba(255, 120, 180, 0.3);
     }
 
     @keyframes floatAvatar {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
 
-    .hair {
-      position: absolute;
-      width: 118px;
-      height: 82px;
-      background: #744222;
-      border-radius: 65px 65px 32px 32px;
-      top: 10px;
-      left: 6px;
-      z-index: 1;
+    h1 {
+      margin: 5px 0;
+      color: #ff5ca8;
+      font-size: 28px;
     }
 
-    .hair::before,
-    .hair::after {
-      content: "";
-      position: absolute;
-      width: 32px;
-      height: 55px;
-      background: #744222;
-      border-radius: 40px;
-      top: 42px;
-    }
-
-    .hair::before {
-      right: -7px;
-      transform: rotate(-8deg);
-    }
-
-    .hair::after {
-      left: -7px;
-      transform: rotate(8deg);
-    }
-
-    .face {
-      position: absolute;
-      width: 96px;
-      height: 86px;
-      background: #ffd6bb;
-      border-radius: 50%;
-      top: 40px;
-      left: 17px;
-      z-index: 2;
-    }
-
-    .eye {
-      position: absolute;
-      width: 11px;
-      height: 11px;
-      background: #2d2d2d;
-      border-radius: 50%;
-      top: 34px;
-      animation: blink 4s infinite;
-    }
-
-    .eye.left { left: 26px; }
-    .eye.right { right: 26px; }
-
-    @keyframes blink {
-      0%, 92%, 100% { transform: scaleY(1); }
-      95% { transform: scaleY(0.15); }
-    }
-
-    .smile {
-      position: absolute;
-      width: 36px;
-      height: 20px;
-      border-bottom: 4px solid #e85b8f;
-      border-radius: 0 0 40px 40px;
-      top: 50px;
-      left: 31px;
-    }
-
-    .cheek {
-      position: absolute;
-      width: 16px;
-      height: 11px;
-      background: #ff98b8;
-      border-radius: 50%;
-      top: 50px;
-      opacity: 0.85;
-    }
-
-    .cheek.left { left: 10px; }
-    .cheek.right { right: 10px; }
-
-    .bow {
-      position: absolute;
-      top: 5px;
-      right: 18px;
-      width: 40px;
-      height: 34px;
-      z-index: 4;
-      animation: bowMove 2.5s ease-in-out infinite;
-    }
-
-    @keyframes bowMove {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(5deg); }
-    }
-
-    .bow::before,
-    .bow::after {
-      content: "";
-      position: absolute;
-      width: 23px;
-      height: 28px;
-      background: #ff3f9f;
-      border-radius: 50%;
-      top: 2px;
-    }
-
-    .bow::before {
-      left: 0;
-      transform: rotate(-25deg);
-    }
-
-    .bow::after {
-      right: 0;
-      transform: rotate(25deg);
-    }
-
-    .bow-center {
-      position: absolute;
-      width: 13px;
-      height: 13px;
-      background: #ff167f;
-      border-radius: 50%;
-      top: 11px;
-      left: 14px;
-      z-index: 5;
-    }
-
-    .header h1 {
-      margin: 10px 0 4px;
-      font-size: 31px;
-      font-weight: 800;
-      position: relative;
-      z-index: 2;
-    }
-
-    .header p {
+    .subtitle {
       margin: 0;
+      color: #666;
       font-size: 15px;
-      position: relative;
-      z-index: 2;
     }
 
-    .status {
-      margin: 14px 20px 0;
-      background: #fff7fb;
-      border: 1px solid #ffd2e8;
-      color: #9d4773;
-      border-radius: 17px;
-      padding: 10px 13px;
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    .chat {
-      padding: 20px;
-      min-height: 325px;
-      max-height: 430px;
+    .chat-box {
+      flex: 1;
+      margin-top: 18px;
+      padding: 12px;
+      background: #fff9fc;
+      border-radius: 20px;
       overflow-y: auto;
-      background-image:
-        radial-gradient(#ffd1e8 2px, transparent 2px),
-        radial-gradient(#d7f4ff 2px, transparent 2px);
-      background-size: 32px 32px;
-      background-position: 0 0, 16px 16px;
+      border: 1px solid #ffe1ef;
     }
 
     .message {
-      padding: 12px 15px;
-      border-radius: 21px;
-      margin-bottom: 12px;
-      line-height: 1.9;
+      max-width: 85%;
+      padding: 12px 14px;
+      margin: 10px 0;
+      border-radius: 18px;
+      line-height: 1.7;
       font-size: 15px;
-      animation: pop 0.25s ease;
-    }
-
-    @keyframes pop {
-      from {
-        transform: scale(0.96);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
+      animation: fadeIn 0.35s ease;
     }
 
     .bot {
-      background: #fff;
-      border: 2px solid #ffd2e8;
-      color: #55364a;
-      border-top-right-radius: 6px;
+      background: #e6f7ff;
+      margin-left: auto;
+      border-bottom-right-radius: 4px;
     }
 
     .user {
-      background: linear-gradient(135deg, #ff72b6, #ff93cc);
-      color: white;
-      border-top-left-radius: 6px;
+      background: #ffe6f2;
       margin-right: auto;
-      max-width: 86%;
-      text-align: right;
-      box-shadow: 0 8px 18px rgba(255, 105, 180, 0.18);
+      border-bottom-left-radius: 4px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      padding: 16px 20px 6px;
-      background: white;
+      margin-top: 15px;
     }
 
     button {
       border: none;
-      border-radius: 19px;
-      padding: 12px;
-      background: #fff0f8;
-      color: #d63384;
-      font-weight: 800;
+      border-radius: 18px;
+      padding: 13px 8px;
+      font-size: 15px;
       cursor: pointer;
-      border: 2px solid #ffd2e8;
-      transition: 0.2s;
-      font-size: 14px;
-    }
-
-    button:hover {
-      background: #ff7cbd;
+      background: linear-gradient(135deg, #ff8fc7, #7ed6ff);
       color: white;
-      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     button:active {
-      transform: scale(0.97);
+      transform: scale(0.96);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
     }
 
-    .voice-button {
+    .wide {
       grid-column: span 2;
-      background: linear-gradient(135deg, #ff4fa3, #ff9bd2);
-      color: white;
-      border: none;
-      font-size: 16px;
-      box-shadow: 0 10px 20px rgba(255, 105, 180, 0.25);
+      background: linear-gradient(135deg, #9bdeac, #7ed6ff);
     }
 
-    .stop-button {
-      grid-column: span 2;
-      background: #fff;
-      color: #a14d78;
-      border: 2px dashed #ffb6d8;
-    }
-
-    .input-area {
-      display: flex;
-      gap: 8px;
-      padding: 16px 20px 20px;
-      background: white;
-    }
-
-    input {
-      flex: 1;
-      border: 2px solid #ffd2e8;
-      border-radius: 22px;
-      padding: 12px 15px;
-      outline: none;
-      font-size: 14px;
-      background: #fff9fc;
-      color: #573448;
-    }
-
-    input:focus {
-      border-color: #ff72b6;
-      box-shadow: 0 0 0 3px rgba(255, 114, 182, 0.14);
-    }
-
-    .send {
-      width: 78px;
-      background: #ff69b4;
-      color: white;
-      border: none;
-    }
-
-    .footer-note {
+    .footer {
       text-align: center;
       font-size: 12px;
-      color: #9b6b85;
-      padding: 0 15px 16px;
-      background: white;
-      line-height: 1.8;
-    }
-
-    @media (max-width: 420px) {
-      .buttons {
-        grid-template-columns: 1fr;
-      }
-
-      .voice-button,
-      .stop-button {
-        grid-column: span 1;
-      }
-
-      .header h1 {
-        font-size: 27px;
-      }
-
-      .avatar {
-        width: 132px;
-        height: 132px;
-      }
-
-      .hair {
-        width: 108px;
-        left: 5px;
-      }
-
-      .face {
-        left: 12px;
-      }
+      color: #888;
+      margin-top: 10px;
     }
   </style>
 </head>
 
 <body>
   <div class="app">
-
     <div class="header">
-      <div class="avatar">
-        <div class="hair"></div>
-        <div class="bow">
-          <div class="bow-center"></div>
-        </div>
-        <div class="face">
-          <div class="eye left"></div>
-          <div class="eye right"></div>
-          <div class="cheek left"></div>
-          <div class="cheek right"></div>
-          <div class="smile"></div>
-        </div>
-      </div>
-
+      <div class="avatar">🌸</div>
       <h1>ریحان کوچولو</h1>
-      <p>دوست مهربون بازی‌های کودکانه</p>
+      <p class="subtitle">دوست کوچولوی مهربون برای بازی و شادی</p>
     </div>
 
-    <div class="status" id="statusBox">
-      برای شنیدن صدای ریحان روی دکمه‌ها بزنید.
-    </div>
-
-    <div class="chat" id="chat">
+    <div id="chatBox" class="chat-box">
       <div class="message bot">
-        سلام من ریحانم 🌸
-        <br>
-        چطور می‌تونم کمکتون کنم؟
-        <br>
-        دوست داری امروز چه بازی قشنگی انجام بدی؟
+        سلام ریحان جان! من اینجام تا با هم بازی کنیم. یکی از گزینه‌ها رو انتخاب کن.
       </div>
     </div>
 
     <div class="buttons">
-      <button onclick="quickAsk('inside')">🏠 بازی داخل خانه</button>
-      <button onclick="quickAsk('noTools')">✨ بدون وسیله</button>
-      <button onclick="quickAsk('educational')">📚 آموزشی</button>
-      <button onclick="quickAsk('calm')">🌙 بازی آرام</button>
-
-      <button class="voice-button" onclick="playWelcome()">
-        🔊 صدای سلام ریحان
-      </button>
-
-      <button class="stop-button" onclick="stopAudio()">
-        ⏹ توقف صدا
-      </button>
+      <button onclick="chooseGame('نقاشی')">🎨 نقاشی</button>
+      <button onclick="chooseGame('قصه')">📖 قصه</button>
+      <button onclick="chooseGame('آهنگ')">🎵 آهنگ</button>
+      <button onclick="chooseGame('بازی شادی')">🎈 بازی شادی</button>
+      <button class="wide" onclick="sayWelcome()">🌷 سلام دوباره</button>
     </div>
 
-    <div class="input-area">
-      <input id="userInput" type="text" placeholder="مثلاً: یه بازی آرام بگو..." />
-      <button class="send" onclick="sendMessage()">بفرست</button>
-    </div>
-
-    <div class="footer-note">
-      مناسب پیشنهاد بازی برای کودکان زیر ۹ سال
-      <br>
-      بهتر است بازی‌ها با اجازه یا همراهی بزرگ‌ترها انجام شود.
+    <div class="footer">
+      ساخته شده برای ریحان کوچولو 💖
     </div>
   </div>
 
-  <audio id="audioPlayer" preload="auto"></audio>
+  <audio id="welcomeAudio" src="welcome.mp3"></audio>
+  <audio id="choiceAudio" src="good-choice.mp3"></audio>
 
   <script>
-    const chat = document.getElementById("chat");
-    const input = document.getElementById("userInput");
-    const statusBox = document.getElementById("statusBox");
-    const audioPlayer = document.getElementById("audioPlayer");
+    const chatBox = document.getElementById("chatBox");
+    const welcomeAudio = document.getElementById("welcomeAudio");
+    const choiceAudio = document.getElementById("choiceAudio");
 
-    const audioPath = "audio/";
-
-    const data = {
-      inside: {
-        title: "بازی داخل خانه",
-        answer: `
-          چه انتخاب خوبی! 🌸
-          <br><br>
-          پیشنهاد ریحان برای شما:
-          <br>
-          <b>بازی قایم‌باشک نرم و امن</b>
-          <br>
-          یکی چشم‌هاشو می‌بنده و بقیه پشت مبل، پرده یا جای امن قایم می‌شن.
-          <br><br>
-          یا می‌تونید <b>برج‌سازی با لگو</b> انجام بدید.
-          <br>
-          فقط یادتون باشه جای خطرناک قایم نشید 💕
-        `
-      },
-
-      noTools: {
-        title: "بازی بدون وسیله",
-        answer: `
-          چه انتخاب خوبی! ✨
-          <br><br>
-          پیشنهاد ریحان برای شما:
-          <br>
-          <b>بازی شکلک خنده‌دار</b>
-          <br>
-          هرکس یک شکلک بامزه درمیاره و بقیه باید حدس بزنن چه احساسی داره.
-          <br><br>
-          یک بازی دیگه هم هست:
-          <br>
-          <b>حرکت حیوانات</b>
-          <br>
-          مثل خرگوش بپر، مثل گربه راه برو، مثل پروانه دست‌هاتو تکون بده.
-        `
-      },
-
-      educational: {
-        title: "بازی آموزشی",
-        answer: `
-          چه انتخاب خوبی! 📚
-          <br><br>
-          پیشنهاد ریحان برای شما:
-          <br>
-          <b>بازی رنگ‌ها</b>
-          <br>
-          یک رنگ بگو، بعد کودک باید سه تا چیز با همان رنگ در اتاق پیدا کند.
-          <br><br>
-          یا بازی <b>شمارش قدم‌ها</b>:
-          <br>
-          تا آشپزخانه چند قدمه؟ با هم بشمارید.
-        `
-      },
-
-      calm: {
-        title: "بازی آرام",
-        answer: `
-          چه انتخاب خوبی! 🌙
-          <br><br>
-          پیشنهاد ریحان برای شما:
-          <br>
-          <b>بازی نفس گل و شمع</b>
-          <br>
-          وانمود کن یک گل قشنگ رو بو می‌کنی، بعد آرام شمع رو فوت می‌کنی.
-          <br><br>
-          یا می‌تونید <b>قصه‌سازی</b> کنید:
-          <br>
-          با جمله «یه روز یه خرگوش کوچولو...» شروع کنید و هر نفر یک جمله اضافه کند.
-        `
-      },
-
-      happy: {
-        title: "بازی شاد",
-        answer: `
-          چه انتخاب خوبی! 🎈
-          <br><br>
-          پیشنهاد ریحان برای شما:
-          <br>
-          <b>بازی رقص توقف</b>
-          <br>
-          یک آهنگ شاد بذارید. همه می‌رقصن.
-          وقتی آهنگ قطع شد، همه باید مثل مجسمه بی‌حرکت بمونن.
-          <br><br>
-          فقط مراقب باشید زمین نخورید 💕
-        `
-      }
-    };
-
-    function updateStatus(text) {
-      statusBox.textContent = text;
-    }
-
-    function addMessage(text, sender) {
+    function addMessage(text, type) {
       const msg = document.createElement("div");
-      msg.className = "message " + sender;
-      msg.innerHTML = text;
-      chat.appendChild(msg);
-      chat.scrollTop = chat.scrollHeight;
+      msg.className = "message " + type;
+      msg.textContent = text;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    function playAudio(fileName, statusText = "در حال پخش صدا...") {
-      audioPlayer.pause();
-      audioPlayer.currentTime = 0;
-      audioPlayer.src = audioPath + fileName;
-
-      updateStatus(statusText);
-
-      audioPlayer.play().catch(function() {
-        updateStatus("صدا پخش نشد. لطفاً فایل صوتی را داخل پوشه audio بررسی کنید.");
+    function playAudio(audioElement) {
+      audioElement.currentTime = 0;
+      audioElement.play().catch(function(error) {
+        console.log("پخش صدا انجام نشد:", error);
       });
     }
 
-    function stopAudio() {
-      audioPlayer.pause();
-      audioPlayer.currentTime = 0;
-      updateStatus("پخش صدا متوقف شد.");
+    function sayWelcome() {
+      addMessage("سلام ریحان کوچولو 🌸", "user");
+      setTimeout(function() {
+        addMessage("سلام عزیزم! خوش اومدی. بیا با هم بازی کنیم 💕", "bot");
+        playAudio(welcomeAudio);
+      }, 500);
     }
 
-    function playWelcome() {
-      playAudio("welcome.mp3", "ریحان دارد سلام می‌کند...");
-    }
-
-    function playGoodChoice() {
-      playAudio("good-choice.mp3", "ریحان می‌گوید: چه انتخاب خوبی...");
-    }
-
-    function quickAsk(type) {
-      const item = data[type];
-
-      addMessage(item.title, "user");
+    function chooseGame(gameName) {
+      addMessage(gameName, "user");
 
       setTimeout(function() {
-        addMessage(item.answer, "bot");
-        playGoodChoice();
-      }, 350);
+        addMessage("چه انتخاب خوبی! بریم سراغ " + gameName + " 😍", "bot");
+        playAudio(choiceAudio);
+      }, 500);
     }
 
-    function detectType(text) {
-      const lower = text.toLowerCase();
-
-      if (
-        lower.includes("داخل") ||
-        lower.includes("خانه") ||
-        lower.includes("خونه") ||
-        lower.includes("اتاق")
-      ) {
-        return "inside";
-      }
-
-      if (
-        lower.includes("بدون") ||
-        lower.includes("وسیله") ||
-        lower.includes("هیچی") ||
-        lower.includes("چیزی ندارم")
-      ) {
-        return "noTools";
-      }
-
-      if (
-        lower.includes("آموزشی") ||
-        lower.includes("یادگیری") ||
-        lower.includes("درس") ||
-        lower.includes("رنگ") ||
-        lower.includes("شمارش")
-      ) {
-        return "educational";
-      }
-
-      if (
-        lower.includes("آرام") ||
-        lower.includes("ارام") ||
-        lower.includes("آروم") ||
-        lower.includes("قبل خواب") ||
-        lower.includes("خواب")
-      ) {
-        return "calm";
-      }
-
-      return "happy";
-    }
-
-    function sendMessage() {
-      const text = input.value.trim();
-
-      if (!text) {
-        updateStatus("لطفاً اول بنویسید چه جور بازی‌ای دوست دارید.");
-        return;
-      }
-
-      addMessage(text, "user");
-      input.value = "";
-
-      const type = detectType(text);
-      const item = data[type];
-
+    window.addEventListener("load", function() {
       setTimeout(function() {
-        addMessage(item.answer, "bot");
-        playGoodChoice();
-      }, 350);
-    }
-
-    input.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        sendMessage();
-      }
+        playAudio(welcomeAudio);
+      }, 800);
     });
-
-    audioPlayer.onended = function() {
-      updateStatus("پخش صدا تمام شد.");
-    };
-
-    audioPlayer.onerror = function() {
-      updateStatus("خطا در پخش صدا. پوشه audio و نام فایل‌ها را بررسی کنید.");
-    };
   </script>
 </body>
 </html>
